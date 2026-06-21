@@ -1,11 +1,30 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuButtons : MonoBehaviour
 {
-    public void StartGame()
+    [SerializeField] private TMP_InputField nameInputField;
+    [SerializeField] private Button playButton;
+    [SerializeField] private TMP_Text errorText;
+
+    private void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        playButton.onClick.AddListener(PlayButton);
+        errorText.gameObject.SetActive(false);
     }
-    
+
+    private void PlayButton()
+    {
+        string enteredName = nameInputField.text.Trim();
+
+        if (string.IsNullOrEmpty(enteredName))
+        {
+            errorText.gameObject.SetActive(true);
+            return;
+        }
+
+        SceneManager.LoadScene("Game");
+    }
 }

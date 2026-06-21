@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   nameInputField: {fileID: 0}
-  continueButton: {fileID: 0}
+  playButton: {fileID: 0}
   errorText: {fileID: 0}
 --- !u!224 &584394402 stripped
 RectTransform:
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 1379291501}
   - component: {fileID: 1379291502}
   m_Layer: 5
-  m_Name: WelcomeManager
+  m_Name: MenuButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuButtons
   nameInputField: {fileID: 2031768487}
-  continueButton: {fileID: 400155196}
+  playButton: {fileID: 400155196}
   errorText: {fileID: 71686047}
 --- !u!1 &1861982638
 GameObject:
@@ -768,6 +768,10 @@ PrefabInstance:
     - target: {fileID: 6726613101612590026, guid: a1c046a21010c594080a8bbf701e989f, type: 3}
       propertyPath: m_text
       value: "\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726613101612590026, guid: a1c046a21010c594080a8bbf701e989f, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6868558724698742751, guid: a1c046a21010c594080a8bbf701e989f, type: 3}
       propertyPath: m_Pivot.x
