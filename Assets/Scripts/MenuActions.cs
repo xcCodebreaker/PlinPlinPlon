@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class MenuButtons : MonoBehaviour
+public class MenuActions : MonoBehaviour
 {
     [SerializeField] private TMP_InputField nameInputField;
     [SerializeField] private Button playButton;

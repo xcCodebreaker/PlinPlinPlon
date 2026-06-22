@@ -22,21 +22,25 @@ public class CounterActions : MonoBehaviour
 
     private void Increment()
     {
-        currentValue++;
-        ScoreHandler();
+            currentValue++;
+            ScoreHandler();
     }
 
     private void Decrement()
     {
-        currentValue--;
-        ScoreHandler();
+        if(currentValue <= 10 && currentValue != 0)
+        {
+            currentValue--;
+            ScoreHandler();
+        }
+   
     }
 
     private void ScoreHandler()
     {
         UpdateScore();
 
-        if (currentValue >= 10)
+        if (currentValue == 10)
         {
             SceneManager.LoadScene("EndScene");
         }
