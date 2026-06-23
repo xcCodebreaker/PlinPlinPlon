@@ -9,6 +9,14 @@ public class MenuActions : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private TMP_Text errorText;
 
+    private void Awake()
+    {
+        string savedName = PlayerPrefs.GetString("username", "");
+        if (!string.IsNullOrEmpty(savedName))
+        {
+            SceneManager.LoadScene("Game");
+        }
+    }
     private void Start()
     {
         playButton.onClick.AddListener(PlayButton);
@@ -25,6 +33,8 @@ public class MenuActions : MonoBehaviour
             return;
         }
 
+        PlayerPrefs.SetString("username", enteredName);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("Game");
     }
 }

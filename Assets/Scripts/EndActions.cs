@@ -7,31 +7,25 @@ public class EndActions : MonoBehaviour
 {
     [SerializeField] private TMP_Text msgText;
     [SerializeField] private Button retryButton;
-    [SerializeField] private Button quitButton;
     [SerializeField] private Button resetButton;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        msgText.text = $"Congratulations, you wasted your time clicking buttons";
+        string username = PlayerPrefs.GetString("username", "Player");
+        msgText.text = $"Congratulations, {username}! You reached 10!";
 
-        retryButton.onClick.AddListener(retryAction);
-        quitButton.onClick.AddListener(quitAction);
-        resetButton.onClick.AddListener(resetAction);
+        retryButton.onClick.AddListener(RetryAction);
+        resetButton.onClick.AddListener(ResetAction);
     }
 
-    private void retryAction()
+    private void RetryAction()
     {
         SceneManager.LoadScene("Game");
     }
 
-    private void quitAction()
+    private void ResetAction()
     {
-        SceneManager.LoadScene("WelcomeMenu");
-    }
-
-    private void resetAction()
-    {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("WelcomeMenu");
     }
 }

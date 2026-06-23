@@ -13,7 +13,7 @@ public class CounterActions : MonoBehaviour
 
     private void Start()
     {
-        currentValue = 0;
+        currentValue = PlayerPrefs.GetInt("counter", 0);
         UpdateScore();
 
         incrementButton.onClick.AddListener(Increment);
@@ -28,7 +28,7 @@ public class CounterActions : MonoBehaviour
 
     private void Decrement()
     {
-        if(currentValue <= 10 && currentValue != 0)
+        if(currentValue != 0)
         {
             currentValue--;
             ScoreHandler();
@@ -38,6 +38,8 @@ public class CounterActions : MonoBehaviour
 
     private void ScoreHandler()
     {
+        PlayerPrefs.SetInt("counter", currentValue);
+        PlayerPrefs.Save();
         UpdateScore();
 
         if (currentValue == 10)
